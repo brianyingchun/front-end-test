@@ -35,6 +35,7 @@
 <script>
 import { defineComponent, ref, watch, watchEffect } from "vue";
 import { useApiStore } from "../stores/example-store.js";
+import { debounce } from "quasar";
 
 export default defineComponent({
   name: "SearchComponet",
@@ -66,8 +67,10 @@ export default defineComponent({
     const displayMatches = () => {
       suggestions.value = findMatches(searchTerm.value, cities.value);
     };
+    //set debounce 500ms
+    const debouncedDisplayMatches = debounce(displayMatches, 500);
 
-    watch(searchTerm, displayMatches);
+    watch(searchTerm, debouncedDisplayMatches);
 
     return {
       apiStore,
@@ -80,7 +83,13 @@ export default defineComponent({
   },
 });
 </script>
+
 <style>
+.hl {
+  color: #31ccec;
+  font-weight: bold;
+}
+
 .search-form {
   max-width: 400px;
   margin: 50px auto;

@@ -14,30 +14,33 @@ export default defineComponent({
   setup() {
     const apiStore = useApiStore();
 
+    //check store and call api if there was no data in stores
     onBeforeMount(async () => {
-      // Check if data is already available in Pinia
       if (!apiStore.data) {
-        // If not, fetch data from API and store it in Pinia
         try {
           await apiStore.fetchData();
         } catch (error) {
-          // Handle error
-          console.error("Error fetching data:", error);
+          console.error(
+            "Error occur when onBeforeMount in EssentialLink.vue:",
+            error
+          );
         }
       } else {
         alert("use data from pinia");
       }
     });
 
+    //clear store and refresh
     const refreshData = () => {
-      apiStore.data = null; // 清空數據
+      apiStore.data = null;
       if (!apiStore.data) {
-        // If not, fetch data from API and store it in Pinia
         try {
           apiStore.fetchData();
         } catch (error) {
-          // Handle error
-          console.error("Error fetching data:", error);
+          console.error(
+            "Error occur when calling refreshData in EssentialLink.vue:",
+            error
+          );
         }
       }
       alert("資料已刷新");
