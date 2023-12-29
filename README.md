@@ -1,13 +1,13 @@
 ###HOW TO BUILD IT IN LOCAL ENV
 
-您好
-主要的代碼撰寫在以下幾支檔案：
-src/layouts/MainLayout.vue          >主要版面
-src/pages/IndexPage.vue             >首頁組件
-src/components/EssentialLink.vue    >資料組件
-src/components/SearchComponent.vue  >搜尋組件
-src/boot/axios.js                   >呼叫api方法
-src/stores/example-store.js         >pinia全局狀態方法
+#您好
+#主要的代碼撰寫在以下幾支檔案：
+#src/layouts/MainLayout.vue          >主要版面
+#src/pages/IndexPage.vue             >首頁組件
+#src/components/EssentialLink.vue    >資料組件
+#src/components/SearchComponent.vue  >搜尋組件
+#src/boot/axios.js                   >呼叫api方法
+#src/stores/example-store.js         >pinia全局狀態方法
 
 
 # node version
